@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.dna.tools.tracker.expense.domain">
+  <class name="Store" table="STORE">
+    <id column="id" name="id">
+      <generator class="sequence">
+        <param name="sequence">store_id_seq</param>
+      </generator>
+    </id>
+    <property column="name" name="name"/>
+    <property column="suburb" name="suburb"/>
+    <property column="address" name="address"/>
+    <property column="state" name="state"/>
+    <property column="post_code" name="postCode"/>
+  </class>
+</hibernate-mapping>

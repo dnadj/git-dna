@@ -1,0 +1,65 @@
+<!-- from the file 'context.xml' -->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:aop="http://www.springframework.org/schema/aop"
+     xmlns:tx="http://www.springframework.org/schema/tx"
+     xsi:schemaLocation="
+     http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+  <!-- the transactional advice (what 'happens'; see the <aop:advisor/> bean below) -->
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+  <!-- the transactional semantics... -->
+        <tx:attributes>
+    <!-- all methods starting with 'get' are read-only -->
+            <tx:method name="get*" read-only="true"/>
+    <!-- other methods use the default transaction settings (see below) -->
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+    <bean id="expenseTrackerService" class="com.dna.tools.tracker.expense.service.PersonalExpenseTrackerService">
+        <property name="expenseTrackerDao" ref="expenseTrackerDao"/>
+    </bean>
+    <bean id="expenseTrackerDao" class="com.dna.tools.tracker.expense.dao.impl.PersonalExpenseTrackerDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+  <!-- don't forget the DataSource -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://localhost:5432/trackerdb"/>
+        <property name="username" value="dnadbu"/>
+        <property name="password" value="appg2123"/>
+    </bean>
+    <aop:config>
+        <aop:pointcut id="execute" expression="execution(* com.dna.tools.tracker.expense.service.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="execute"/>
+    </aop:config>
+
+  <!-- similarly, don't forget the PlatformTransactionManager -->
+    <bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mappingResources">
+            <list>
+                <value>hibernate/Item.hbm.xml</value>
+                <value>hibernate/Store.hbm.xml</value>
+                <value>hibernate/Purchase.hbm.xml</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <value>
+        hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+        hibernate.show_sql=true
+            </value>
+        </property>
+    </bean>
+
+  <!-- other <bean/> definitions here -->
+
+</beans>

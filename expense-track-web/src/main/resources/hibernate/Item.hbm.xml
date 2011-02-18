@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.dna.tools.tracker.expense.domain">
+  <class name="Item" table="ITEM">
+    <id column="id" name="id">
+      <generator class="sequence">
+        <param name="sequence">item_id_seq</param>
+      </generator>
+    </id>
+    <property column="name" name="name"/>
+    <property column="category" name="category"/>
+    <property column="description" name="description"/>
+    <property column="brand" name="brand"/>
+  </class>
+</hibernate-mapping>

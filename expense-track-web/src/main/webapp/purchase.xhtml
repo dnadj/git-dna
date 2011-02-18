@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+        <link type="text/css" href="css/ui-lightness/jquery-ui-1.8.9.custom.css" rel="stylesheet" />
+        <script type="text/javascript" src="js/jquery-1.4.4.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.8.9.custom.min.js"></script>
+
+        <title>Testing</title><script>
+        $(function() {
+                $( ".datePurchase" ).datepicker();
+
+        });
+        </script>
+
+    </h:head>
+    <h:body>
+        <h3>JSF 2.0 Hello World Example - hello.xhtml</h3>
+        <h:form id="purchaseEntryBean">
+            <h4>Calculator</h4>
+            <h:panelGrid columns="3">
+                <h:outputLabel value="Item" for="item" />
+                <h:selectOneMenu id="item" value="#{purchaseEntryBean.itemId}">
+                    <f:selectItems itemValue="#{item.id}" itemLabel="#{item.name}" var="item"
+                        value="#{purchaseEntryBean.itemList}" />
+                </h:selectOneMenu>
+                <h:message for="item" />
+
+                <h:outputLabel value="Store" for="store" />
+                <h:selectOneMenu id="store" value="#{purchaseEntryBean.storeId}">
+                    <f:selectItems itemValue="#{store.id}" itemLabel="#{store.name}" var="store"
+                        value="#{purchaseEntryBean.storeList}" />
+                </h:selectOneMenu>
+                <h:message for="store" />
+
+                <h:outputLabel value="Qty" for="qty" />
+                <h:inputText id="qty"
+                             value="#{purchaseEntryBean.qty}" required="true" />
+                <h:message for="qty" />
+
+                <h:outputLabel value="Unit" for="unit" />
+                <h:inputText id="unit"
+                             value="#{purchaseEntryBean.unit}" required="true" />
+                <h:message for="unit" />
+
+                <h:outputLabel value="Cost" for="cost" />
+                <h:inputText id="cost"
+                             value="#{purchaseEntryBean.cost}" required="true" />
+                <h:message for="cost" />
+
+                <h:outputLabel value="Date" for="date" />
+                <h:inputText id="date" styleClass="datePurchase"
+                             value="#{purchaseEntryBean.date}" required="true">
+                    <f:convertDateTime type="date" pattern="mm/dd/yyyy" dateStyle="medium"/>
+                </h:inputText>
+                <h:message for="date" />
+            </h:panelGrid>
+            <div>
+
+                <h:commandButton action="#{purchaseEntryBean.add}"  value="Add" />
+            </div>
+        </h:form>
+    </h:body>
+</html>

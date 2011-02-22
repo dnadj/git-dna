@@ -5,7 +5,9 @@
 package com.dna.tools.tracker.expense.service;
 
 import com.dna.tools.tracker.expense.dao.ExpenseTrackerDao;
+import com.dna.tools.tracker.expense.domain.Item;
 import com.dna.tools.tracker.expense.domain.Purchase;
+import com.dna.tools.tracker.expense.domain.Store;
 import com.google.inject.Inject;
 import java.util.List;
 
@@ -40,5 +42,15 @@ public class PersonalExpenseTrackerService implements ExpenseTrackerService {
     @Override
     public List getAllStoresList() {
         return expenseTrackerDao.getAllStoresList();
+    }
+
+    @Override
+    public void addItem(Item item) {
+        expenseTrackerDao.addItem(item);
+    }
+
+    @Override
+    public void addStore(Store store) {
+        expenseTrackerDao.addStore(store);
     }
 }

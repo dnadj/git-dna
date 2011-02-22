@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+
+
+    </h:head>
+    <h:body>
+        <h3>JSF 2.0 Hello World Example - hello.xhtml</h3>
+        <h:form id="storeEntryBean">
+            <h4>Store Details</h4>
+            <h:panelGrid columns="3">
+                <h:outputLabel value="Store Name" for="name" />
+                <h:inputText id="name"
+                             value="#{storeEntryBean.name}" required="true" />
+                <h:message for="name" />
+
+                <h:outputLabel value="Suburb" for="suburb" />
+                <h:inputText id="suburb"
+                             value="#{storeEntryBean.suburb}" required="true" />
+                <h:message for="suburb" />
+
+                <h:outputLabel value="Address" for="address" />
+                <h:inputText id="address"
+                             value="#{storeEntryBean.address}" required="true" />
+                <h:message for="address" />
+
+                <h:outputLabel value="State" for="state" />
+                <h:inputText id="state"
+                             value="#{storeEntryBean.state}" required="true" />
+                <h:message for="state" />
+
+                <h:outputLabel value="Post Code" for="postCode" />
+                <h:inputText id="postCode"
+                             value="#{storeEntryBean.postCode}" required="true" />
+                <h:message for="postCode" />
+            </h:panelGrid>
+            <div>
+
+                <h:commandButton action="#{storeEntryBean.add}"  value="Add" />
+            </div>
+        </h:form>
+    </h:body>
+</html>

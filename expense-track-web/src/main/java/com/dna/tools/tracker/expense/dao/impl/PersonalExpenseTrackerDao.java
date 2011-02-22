@@ -6,7 +6,9 @@ package com.dna.tools.tracker.expense.dao.impl;
 
 import com.dna.tools.tracker.expense.dao.AbstractHibernateDao;
 import com.dna.tools.tracker.expense.dao.ExpenseTrackerDao;
+import com.dna.tools.tracker.expense.domain.Item;
 import com.dna.tools.tracker.expense.domain.Purchase;
+import com.dna.tools.tracker.expense.domain.Store;
 import java.util.List;
 
 /**
@@ -34,5 +36,15 @@ public class PersonalExpenseTrackerDao extends AbstractHibernateDao implements E
 
         return getSession().createQuery(hql).list();
 
+    }
+
+    @Override
+    public void addItem(Item item) {
+        getSession().saveOrUpdate(item);
+    }
+
+    @Override
+    public void addStore(Store store) {
+        getSession().saveOrUpdate(store);
     }
 }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+
+
+    </h:head>
+    <h:body>
+        <h3>JSF 2.0 Hello World Example - hello.xhtml</h3>
+        <h:form id="itemEntryBean">
+            <h4>Store Details</h4>
+            <h:panelGrid columns="3">
+                <h:outputLabel value="Item Name" for="name" />
+                <h:inputText id="name"
+                             value="#{itemEntryBean.name}" required="true" />
+                <h:message for="name" />
+
+                <h:outputLabel value="Category" for="category" />
+                <h:inputText id="category"
+                             value="#{itemEntryBean.category}" required="true" />
+                <h:message for="category" />
+
+                <h:outputLabel value="Brand" for="brand" />
+                <h:inputText id="brand"
+                             value="#{itemEntryBean.brand}" required="true" />
+                <h:message for="brand" />
+
+                <h:outputLabel value="Description" for="description" />
+                <h:inputText id="description"
+                             value="#{itemEntryBean.description}" required="true" />
+                <h:message for="description" />
+             </h:panelGrid>
+            <div>
+
+                <h:commandButton action="#{itemEntryBean.add}"  value="Add" />
+            </div>
+        </h:form>
+    </h:body>
+</html>

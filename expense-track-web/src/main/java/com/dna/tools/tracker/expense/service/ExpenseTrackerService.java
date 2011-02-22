@@ -4,7 +4,9 @@
  */
 package com.dna.tools.tracker.expense.service;
 
+import com.dna.tools.tracker.expense.domain.Item;
 import com.dna.tools.tracker.expense.domain.Purchase;
+import com.dna.tools.tracker.expense.domain.Store;
 import java.util.List;
 
 /**
@@ -18,4 +20,8 @@ public interface ExpenseTrackerService {
     public List getAllItemsList();
 
     public List getAllStoresList();
+
+    public void addItem(Item item);
+
+    public void addStore(Store store);
 }

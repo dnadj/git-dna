@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>CUSTOM-GWT Hosted</actionName>
+            <displayName>GWT Hosted</displayName>
+            <goals>
+                <goal>gwt:debug</goal>
+            </goals>
+            <properties>
+                <runTarget>StockWatcher.html</runTarget>
+            </properties>
+        </action>
+    </actions>

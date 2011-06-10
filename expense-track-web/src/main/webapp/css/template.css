@@ -1,0 +1,26 @@
+.header,.footer { background-color: #cfcfcf; width: 800px;
+}
+.main {
+    display: inline;
+}
+.middle-table {
+    border-width: 0px; width: 800px;
+}
+.middle-table td {
+    padding: 0px; vertical-align: top;
+}
+.nav-col {
+    background-color: #ccccff; width: 30%;
+}
+.main-col {
+    background-color: #aaaaaa; width: 70%;
+}
+.nav-col a {
+    display: list-item; list-style: none;
+}
+.nav-col form {
+    display: inline;
+}
+.nav-col .selected {
+    font-weight: bold;
+}

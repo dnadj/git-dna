@@ -8,14 +8,14 @@ import com.dna.tools.tracker.expense.domain.Store;
 import com.dna.tools.tracker.expense.factory.ApplicationContextFactory;
 import com.dna.tools.tracker.expense.service.ExpenseTrackerService;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
 /**
  *
  * @author deena
  */
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class StoreEntryBean {
 
     private String name;
@@ -35,7 +35,7 @@ public class StoreEntryBean {
 
     public String add() {
         expenseTrackerService.addStore(createStore());
-        return "index";
+        return "/store.xhtml";
     }
 
     public Store createStore() {

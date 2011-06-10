@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<module rename-to='hello'>
+<module rename-to='kanakku'>
    <!-- Inherit the core Web Toolkit stuff. -->
     <inherits name='com.google.gwt.user.User' />
 
@@ -18,7 +18,7 @@
    
 	<!-- Specify the paths for translatable code -->
 
-    <entry-point class="com.dna.test.kanakku.client.HelloWorld"/>
+    <entry-point class="com.dna.test.kanakku.client.PurchaseEntry"/>
 
     <source path='client' />
     <source path='shared' />

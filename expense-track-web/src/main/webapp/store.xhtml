@@ -10,7 +10,15 @@
 
     </h:head>
     <h:body>
-        <h3>JSF 2.0 Hello World Example - hello.xhtml</h3>
+        <h:form>
+            <h4>Links</h4>
+            <h3>
+                <h:commandLink value="Purchase " action="purchase"/>
+            </h3>
+            <h3>
+                <h:commandLink value="Item" action="item"/>
+            </h3>
+        </h:form>
         <h:form id="storeEntryBean">
             <h4>Store Details</h4>
             <h:panelGrid columns="3">

@@ -17,7 +17,7 @@
                 <goal>gwt:debug</goal>
             </goals>
             <properties>
-                <runTarget>Test.html</runTarget>
+                <runTarget>Main.html</runTarget>
             </properties>
         </action>
     </actions>

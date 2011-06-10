@@ -24,4 +24,12 @@ public interface ExpenseTrackerService {
     public void addItem(Item item);
 
     public void addStore(Store store);
+
+    public List<Item> searchItems(String query);
+
+    public List<Store> searchStores(String query);
+
+    public Item retrieveItem(Long id);
+
+    public Store retrieveStore(Long id);
 }

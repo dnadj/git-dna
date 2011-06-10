@@ -9,6 +9,7 @@ import com.dna.tools.tracker.expense.domain.Item;
 import com.dna.tools.tracker.expense.factory.ApplicationContextFactory;
 import com.dna.tools.tracker.expense.service.ExpenseTrackerService;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
 /**
@@ -16,7 +17,7 @@ import javax.faces.bean.SessionScoped;
  * @author deena
  */
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class ItemEntryBean {
     private String name;
     private String category;
@@ -35,7 +36,7 @@ public class ItemEntryBean {
 
     public String add() {
         expenseTrackerService.addItem(createItem());
-        return "index";
+        return "item.xhtml";
     }
 
     public Item createItem() {

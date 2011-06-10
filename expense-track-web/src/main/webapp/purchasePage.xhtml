@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui">
+
+    <h:head>
+
+        <title>Testing</title>
+
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+
+            <p:layoutUnit position="top" height="75" header="Top" resizable="true" closable="true" collapsible="true">
+                <h:outputText value="North unit content." />
+            </p:layoutUnit>
+
+            <p:layoutUnit position="bottom" height="75" header="Bottom" resizable="true" closable="true" collapsible="true">
+                <h:outputText value="South unit content." />
+            </p:layoutUnit>
+
+            <p:layoutUnit position="left" width="200" header="Left" resizable="true" closable="true" collapsible="true">
+                <h:form>
+                    <h:commandLink value="Purchase" action="purchase"/>
+                </h:form>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="right" width="200" header="Right" resizable="true" closable="true" collapsible="true">
+                <h:outputText value="East unit content." />
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center">
+                <h:form id="purchaseEntryBean">
+                    <h4>Calculator</h4>
+                    <h:panelGrid columns="3">
+                        <h:outputLabel  value="Item" for="item"  />
+                        <p:autoComplete id="item" value="#{purchaseEntryBean.selectedItem}"
+                                        completeMethod="#{purchaseEntryBean.completeItem}"
+                                        var="item" itemLabel="#{item.name}-#{item.category}"
+                                        itemValue="#{item}" converter="itemConvert" />
+                        <h:message for="item" />
+
+                        <h:outputLabel value="Store" for="store" />
+                        <p:autoComplete id="store" value="#{purchaseEntryBean.selectedStore}"
+                                        completeMethod="#{purchaseEntryBean.completeStore}"
+                                        var="store" itemLabel="#{store.name}-#{store.suburb}"
+                                        itemValue="#{store}" converter="storeConvert"/>
+                        <h:message for="store" />
+
+                        <h:outputLabel value="Qty" for="qty" />
+                        <h:inputText id="qty"
+                                     value="#{purchaseEntryBean.qty}" required="true" />
+                        <h:message for="qty" />
+
+                        <h:outputLabel value="Unit" for="unit" />
+                        <h:inputText id="unit"
+                                     value="#{purchaseEntryBean.unit}" required="true" />
+                        <h:message for="unit" />
+
+                        <h:outputLabel value="Cost" for="cost" />
+                        <h:inputText id="cost"
+                                     value="#{purchaseEntryBean.cost}" required="true" />
+                        <h:message for="cost" />
+
+                        <h:outputLabel value="Date" for="date" />
+                        <p:calendar id="date" value="#{purchaseEntryBean.date}" />
+                        <h:message for="date" />
+                    </h:panelGrid>
+                    <div>
+
+                        <h:commandButton action="#{purchaseEntryBean.add}"  value="Add" />
+                    </div>
+                </h:form>
+            </p:layoutUnit>
+
+        </p:layout>
+    </h:body>
+</html>

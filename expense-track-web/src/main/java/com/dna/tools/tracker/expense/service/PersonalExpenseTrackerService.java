@@ -53,4 +53,24 @@ public class PersonalExpenseTrackerService implements ExpenseTrackerService {
     public void addStore(Store store) {
         expenseTrackerDao.addStore(store);
     }
+
+    @Override
+    public List<Item> searchItems(String query) {
+        return expenseTrackerDao.searchItems(query);
+    }
+
+    @Override
+    public List<Store> searchStores(String query) {
+        return expenseTrackerDao.searchStores(query);
+    }
+
+    @Override
+    public Item retrieveItem(Long id) {
+         return expenseTrackerDao.retrieveItem(id);
+    }
+
+    @Override
+    public Store retrieveStore(Long id) {
+         return expenseTrackerDao.retrieveStore(id);
+    }
 }

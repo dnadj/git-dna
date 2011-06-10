@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
+    <!-- Enables CTRL+SHIFT+D for activating Facelets debug window -->
+    <html>
+        <h:head>
+            <ui:insert name="htmlHead" />
+            <link rel="stylesheet" type="text/css" href="css/template.css" />
+
+        </h:head>
+        <h:body>
+            <h:panelGroup layout="block" styleClass="header">
+                <ui:include src="header.xhtml" />
+            </h:panelGroup>
+            <h:panelGrid columns="2" columnClasses="nav-col, main-col" styleClass="middle-table">
+                <h:panelGroup layout="block">
+                    <h:form>
+                        <ui:insert name="navigation" />
+                    </h:form> 
+                </h:panelGroup>
+                <h:panelGroup layout="block">
+                    <ui:insert name="main" />
+                </h:panelGroup>
+            </h:panelGrid>
+            <h:panelGroup layout="block" styleClass="footer">
+                <ui:include src="footer.xhtml" />
+            </h:panelGroup>
+        </h:body>
+    </html>
+</f:view>
